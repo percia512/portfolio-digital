@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro para Evento</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d35400;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #d35400;
+      outline: none;
+      box-shadow: 0 0 5px rgba(211, 84, 0, 0.4);
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"] {
+      background-color: #d35400;
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e67e22;
+    }
+
+    input[type="reset"] {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #bbb;
+    }
+
+    div.campo {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 480px) {
+      form {
+        padding: 20px;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form action="processa_evento.php" method="post">
+    <h2>Cadastro para Evento</h2>
+
+    <div class="campo">
+      <label for="nome">Nome Completo:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div class="campo">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="campo">
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" name="idade" min="1" max="120">
+    </div>
+
+    <div class="campo">
+      <label for="genero">Gênero:</label>
+      <select id="genero" name="genero">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="ingresso">Tipo de Ingresso:</label>
+      <select id="ingresso" name="ingresso">
+        <option value="vip">VIP</option>
+        <option value="normal">Normal</option>
+        <option value="estudante">Estudante</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="acompanhante">Vai levar acompanhante?</label>
+      <select id="acompanhante" name="acompanhante">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="mensagem">Observações / Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" cols="40"></textarea>
+    </div>
+
+    <div class="botoes">
+      <input type="submit" value="Enviar">
+      <input type="reset" value="Limpar">
+    </div>
+  </form>
+</body>
+</html>
