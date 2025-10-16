@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio Digital - Pércia Mabota</title>
+<style>
+:root {
+  --cor-principal: #d72660;
+  --cor-secundaria: #e07aa5;
+  --texto-claro: #fff;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  color: #fff;
+  background-image: url("jujutsu kaisen.jpeg"); /* fundo da página inicial */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+body::before {
+  content:"";
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.4);
+  z-index:-1;
+}
+
+/* ===== MENU SUPERIOR FIXO ===== */
+nav {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background: rgba(215,38,96,0.9);
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
+nav a {
+  text-decoration:none;
+  color: var(--texto-claro);
+  font-weight:bold;
+  font-size:1.1em;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor:pointer;
+}
+
+nav a:hover {
+  background: var(--cor-secundaria);
+  transform: scale(1.1);
+}
+
+/* ===== ABAS ===== */
+.aba {
+  display:none;
+  padding: 120px 20px 60px 20px; /* espaço para menu e rodapé */
+  text-align:center;
+}
+
+.aba.active {
+  display:block;
+}
+
+.menu-central {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  background: rgba(255,255,255,0.2);
+  padding:40px 60px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  margin: 20px auto;
+}
+
+.menu-central a {
+  text-decoration:none;
+  background: var(--cor-secundaria);
+  color: var(--texto-claro);
+  font-weight:bold;
+  font-size:1.2em;
+  padding:15px 40px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.menu-central a:hover {
+  background: var(--cor-principal);
+  transform: scale(1.1);
+}
+
+footer {
+  position: fixed;
+  bottom:0;
+  width:100%;
+  background: rgba(215,38,96,0.8);
+  color: var(--texto-claro);
+  text-align:center;
+  padding:10px 0;
+  font-size:0.9em;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.3);
+}
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 12px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Responsivo */
+@media(max-width:600px){
+  nav {
+    flex-direction: column;
+    gap:10px;
+    padding:10px;
+  }
+  .menu-central {
+    width:80%;
+    padding:20px;
+  }
+  .menu-central a {
+    width:100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- MENU SUPERIOR FIXO -->
+<nav>
+  <a onclick="abrirAba('inicio')">🏠 Início</a>
+  <a onclick="abrirAba('formulario')">📝 Formulário</a>
+  <a onclick="abrirAba('galeria')">🖼️ Galeria</a>
+  <a onclick="abrirAba('cv')">💼 CV</a>
+</nav>
+
+<!-- ABAS -->
+<section id="inicio" class="aba active">
+  <h2>Bem-vinda ao meu Portfólio!</h2>
+  <p>Escolhe uma das opções abaixo:</p>
+  <div class="menu-central">
+    <a onclick="abrirAba('formulario')">📝 Formulário de Evento</a>
+    <a onclick="abrirAba('galeria')">🖼️ Galeria Multimédia</a>
+    <a onclick="abrirAba('cv')">💼 CV Digital</a>
+  </div>
+</section>
+
+<section id="formulario" class="aba">
+  <h2>Formulário de Evento</h2>
+  <!-- Aqui você insere o código do formulário -->
+  <iframe src="formulario.html" style="height:700px;"></iframe>
+</section>
+
+<section id="galeria" class="aba">
+  <h2>Galeria Multimédia</h2>
+  <!-- Aqui você insere o código da galeria completa com fotos, vídeos e áudio -->
+  <iframe src="galeria.html" style="height:800px;"></iframe>
+</section>
+
+<section id="cv" class="aba">
+  <h2>CV Digital</h2>
+  <!-- Foto existente do CV -->
+  <img src="imagens/foto.png.jpg" alt="Foto Pércia Mabota" 
+       style="width:150px; height:150px; border-radius:50%; border:4px solid #d72660; margin-bottom:20px;">
+  <!-- Conteúdo do CV -->
+  <iframe src="cv.html"></iframe>
+</section>
+
+<footer>Desenvolvido por <strong>Pércia Mabota</strong> © 2025</footer>
+
+<script>
+function abrirAba(id){
+  document.querySelectorAll('.aba').forEach(aba=>{
+    aba.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
