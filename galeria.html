@@ -18,7 +18,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, var(--bg1), var(--bg2));
       margin: 0;
-      padding: 30px 20px;
+      padding: 24px 16px;
       color: #2c3e50;
       -webkit-font-smoothing:antialiased;
     }
@@ -28,21 +28,21 @@
     /* Grid-based responsive gallery */
     .galeria{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap:20px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap:14px;
       align-items:start;
-      margin-bottom:30px;
-      width:100%;
-      max-width:1200px;
+      margin-bottom:22px;
+      width:90%;
+      max-width:900px;
       margin-left:auto;
       margin-right:auto;
     }
 
     figure{
       background:var(--card-bg);
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.12);
-      padding:12px;
+      border-radius:10px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.10);
+      padding:8px;
       width:100%;
       text-align:center;
       transition:transform .18s ease, box-shadow .18s ease;
@@ -54,25 +54,48 @@
       width:100%;
       height:auto;
       display:block;
-      border-radius:10px;
+      border-radius:7px;
       object-fit:cover;
     }
 
-    figcaption{ margin-top:8px; font-style:italic; color:var(--muted); font-size:.95rem }
+    /* tamanhos menores para perfil e controles de mídia */
+    .profile-img{
+      width:100%;
+      max-width:300px; /* limite para não ficar grande */
+      height:auto;
+      border-radius:50%; /* circular para foto de perfil */
+      object-fit:cover;
+      display:block;
+      margin:8px auto;
+      border:3px solid var(--primary);
+    }
 
-    audio, video{ width:100%; margin-top:10px }
+    @media (max-width:480px){
+      .profile-img{ max-width:140px }
+    }
+
+    .small-media{
+      width:100%;
+      max-width:360px;
+      margin:8px auto 0;
+      display:block;
+    }
+  
+  figcaption{ margin-top:6px; font-style:italic; color:var(--muted); font-size:.9rem }
+
+    audio, video{ width:100%; margin-top:7px }
 
     /* Responsive iframe (YouTube) */
     iframe{
       width:100%;
-      max-width:920px;
+      max-width:820px;
       aspect-ratio:16/9;
       height:auto;
       display:block;
-      margin:20px auto;
+      margin:16px auto;
       border:0;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.12);
+      border-radius:10px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.10);
     }
 
     .download{
@@ -88,18 +111,18 @@
     .download:hover{ background:#1a237e }
 
     /* Layout adjustments for larger screens */
-    @media (min-width:900px){
-      body{ padding:36px 48px }
-      .galeria{ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-      iframe{ max-width:560px }
+    @media (min-width:700px){
+      body{ padding:32px 40px }
+      .galeria{ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      iframe{ max-width:520px }
     }
 
     /* Small screens */
-    @media (max-width:480px){
-      body{ padding:18px }
-      figure{ padding:10px }
-      h1{ font-size:1.4rem }
-      h2{ font-size:1.05rem }
+    @media (max-width:300px){
+      body{ padding:14px }
+      figure{ padding:8px }
+      h1{ font-size:1.3rem }
+      h2{ font-size:1rem }
     }
   </style>
   </head>
@@ -109,7 +132,7 @@
 
   <h2>Imagem de Perfil</h2>
   <figure><img 
-    src="img.jpg.jpg" alt="Foto de perfil">
+    src="img.jpg.jpg" alt="Foto de perfil" class="profile-img">
     <figcaption>Minha fotografia usada como imagem de perfil.</figcaption>
   </figure>
   <h2>Galeria de Imagens</h2>
@@ -138,34 +161,7 @@
       <img src="imagem-tanjiro-kamado-wallpaper.jpg.jpg" alt="Tanjiro Kamado">
       <figcaption><b>Tanjiro Kamado</b> do anime Demon Slayer.</figcaption>
     </figure>
-  </div>
-
-  <h2>Música</h2>
-  <figure>
-    <audio controls preload="metadata">
-    <a class="download" href="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" download>Baixar música</a>
-      <source src="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" type="audio/mp3">
-      Seu navegador não suporta áudio.
-    </audio>
-    <figcaption>Faixa <b>Tropa do Flamengo</b>, uma das favoritas.</figcaption>
-    <a class="download" href="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" download>Baixar música</a>
-  </figure>
-  <h2>Vídeo</h2>
-  <figure>
-    <video controls>
-      <source src="video-whatsapp-2025-09-20-03.27.22_ba436d24.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
-    <figcaption>Vídeo pessoal de um bom momento.</figcaption>
-    <a class="download" href="video-whatsapp-2025-09-20-03.27.22_ba436d24.mp4" download>Baixar vídeo</a>
-  </figure>
-
-  <iframe src="https://youtu.be/MHsp-KkGo_g?list=RDOc9NgPgUO3E" allowfullscreen></iframe>
-  <h2>Conteúdo Externo</h2>
-  <iframe src="https://youtu.be/MHsp-KkGo_g?list=RDOc9NgPgUO3E" allowfullscreen></iframe>
-
-  <h2>Novas Fotos</h2>
-  <div class="galeria">
+    <!-- figuras adicionais movidas das 'Novas Fotos' -->
     <figure>
       <img src="imagem-whatsapp-2025-10-11-08.44.16_443d1a10.png.jpg" alt="Foto divertida 1">
       <figcaption>Foto divertida tirada recentemente.</figcaption>
@@ -189,6 +185,32 @@
     <figure>
       <img src="jujutsu-kaisen.jpeg.jpeg" alt="Foto extra 3">
       <figcaption>Foto divertida e memorável.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Música</h2>
+  <figure>
+    <audio controls preload="metadata" class="small-media">
+    <a class="download" href="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" download>Baixar música</a>
+      <source src="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" type="audio/mp3">
+      Seu navegador não suporta áudio.
+    </audio>
+    <figcaption>Faixa <b>Tropa do Flamengo</b>, uma das favoritas.</figcaption>
+    <a class="download" href="chefin-tropa-do-flamengo-prod.lb-unico.mp3.mp3" download>Baixar música</a>
+  </figure>
+  <h2>Vídeo</h2>
+  <figure>
+    <video controls class="small-media">
+      <source src="video-whatsapp-2025-09-20-03.27.22_ba436d24.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+    <figcaption>Vídeo pessoal de um bom momento.</figcaption>
+    <a class="download" href="video-whatsapp-2025-09-20-03.27.22_ba436d24.mp4" download>Baixar vídeo</a>
+  </figure>
+
+  <iframe src="https://youtu.be/MHsp-KkGo_g?list=RDOc9NgPgUO3E" allowfullscreen></iframe>
+  <h2>Conteúdo Externo</h2>
+  <iframe src="https://youtu.be/MHsp-KkGo_g?list=RDOc9NgPgUO3E" allowfullscreen></iframe>
     </figure>
   </div>
 </body>

@@ -10,20 +10,21 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #f6d365, #fda085);
       margin: 0;
-      padding: 0;
+      padding: 20px; /* espaço para o iframe */
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start; /* não centralizar verticalmente para caber no iframe */
+      /* não forçar altura: 100vh para evitar overflow dentro de iframes */
+      min-height: 100%;
     }
 
     form {
       background-color: #fff;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px 22px; /* reduzido para caber melhor */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       width: 100%;
-      max-width: 450px;
+      max-width: 360px; /* menor para ficar visível em iframes */
     }
 
     h2 {
@@ -101,7 +102,8 @@
 
     @media (max-width: 480px) {
       form {
-        padding: 20px;
+        padding: 16px;
+        max-width: 320px;
       }
       input[type="submit"],
       input[type="reset"] {
