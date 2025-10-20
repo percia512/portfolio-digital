@@ -6,175 +6,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfólio Digital - Pércia Mabota</title>
 <style>
-:root {
-  --cor-principal: #d72660;
-  --cor-secundaria: #e07aa5;
-  --texto-claro: #fff;
-}
-
-body {
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  color: #fff;
-  background-image: url("jujutsu kaisen.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
-
-body::before {
-  content:"";
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.5);
-  z-index:-1;
-}
-
-/* ===== MENU SUPERIOR FIXO ===== */
-nav {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background: rgba(215,38,96,0.9);
-  display:flex;
-  justify-content:center;
-  flex-wrap: wrap;
-  gap:30px;
-  padding:10px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  z-index: 10;
-}
-
-nav a {
-  text-decoration:none;
-  color: var(--texto-claro);
-  font-weight:bold;
-  font-size:1em;
-  transition: all 0.3s ease;
-  padding: 6px 14px;
-  border-radius: 8px;
-}
-
-nav a:hover {
-  background: var(--cor-secundaria);
-  transform: scale(1.05);
-}
-
-/* ===== ABAS ===== */
-.aba {
-  display:none;
-  padding: 100px 10px 60px 10px;
-  text-align:center;
-}
-
-.aba.active {
-  display:block;
-}
-
-/* ===== MENU CENTRAL ===== */
-.menu-central {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:15px;
-  background: rgba(255,255,255,0.15);
-  padding:30px 40px;
-  border-radius:20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  margin: 20px auto;
-  max-width:400px;
-}
-
-.menu-central a {
-  text-decoration:none;
-  background: var(--cor-secundaria);
-  color: var(--texto-claro);
-  font-weight:bold;
-  font-size:1em;
-  padding:10px 25px;
-  border-radius:12px;
-  transition: all 0.3s ease;
-}
-
-.menu-central a:hover {
-  background: var(--cor-principal);
-  transform: scale(1.08);
-}
-
-/* ===== IMAGENS, VÍDEOS E ÁUDIOS ===== */
-img, video, audio, iframe {
-  max-width: 60%;
-  border-radius: 10px;
-  margin: 10px auto;
-  display: block;
-}
-
-img {
-  height: auto;
-  width: 250px; /* imagens menores */
-  object-fit: cover;
-  border: 3px solid #d72660;
-}
-
-video {
-  width: 300px;
-  height: auto;
-}
-
-audio {
-  width: 250px;
-}
-
-/* ===== IFRAMES (FORM, GALERIA, CV) ===== */
-iframe {
-  width: 95%;
-  height: 500px;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* ===== RODAPÉ ===== */
-footer {
-  position: fixed;
-  bottom:0;
-  width:100%;
-  background: rgba(215,38,96,0.8);
-  color: var(--texto-claro);
-  text-align:center;
-  padding:8px 0;
-  font-size:0.85em;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.3);
-}
-
-/* ===== RESPONSIVO ===== */
-@media(max-width:600px){
-  nav {
-    flex-direction: column;
-    gap:10px;
-    padding:10px;
+  :root{
+    --cor-principal:#d72660;
+    --cor-secundaria:#e07aa5;
+    --texto-claro:#fff;
+    --overlay: rgba(0,0,0,0.5);
   }
-  .menu-central {
-    width:90%;
-    padding:15px;
+
+  *,*::before,*::after{box-sizing:border-box}
+
+  body{
+    font-family: "Segoe UI", sans-serif;
+    margin:0;
+    color:var(--texto-claro);
+    background-image: url("jujutsu kaisen.jpeg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:100vh;
   }
-  iframe {
-    height: 400px;
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:var(--overlay);
+    z-index:-1;
   }
-  img {
-    width: 180px;
+
+  /* ===== NAV ===== */
+  nav{
+    position:fixed; top:0; left:0; width:100%;
+    background: rgba(215,38,96,0.95);
+    display:flex; justify-content:center; gap:28px; flex-wrap:wrap;
+    padding:10px 12px; box-shadow:0 2px 10px rgba(0,0,0,.35); z-index:20;
   }
-  video {
-    width: 220px;
+  nav a{ text-decoration:none; color:var(--texto-claro); font-weight:700; padding:8px 14px; border-radius:8px; transition:transform .18s ease, background .18s }
+  nav a:hover{ background:var(--cor-secundaria); transform:scale(1.04) }
+
+  /* ===== ABAS / LAYOUT ===== */
+  .aba{ display:none; padding:100px 12px 70px; text-align:center }
+  .aba.active{ display:block }
+
+  .menu-central{
+    margin:18px auto; max-width:420px; width:100%; display:flex; flex-direction:column; gap:14px;
+    background: rgba(255,255,255,0.12); padding:26px; border-radius:18px; backdrop-filter:blur(8px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
   }
-  audio {
-    width: 200px;
+  .menu-central a{ text-decoration:none; background:var(--cor-secundaria); color:var(--texto-claro); padding:10px 20px; border-radius:12px; font-weight:700 }
+  .menu-central a:hover{ background:var(--cor-principal); transform:scale(1.04) }
+
+  /* ===== IMAGENS / MEDIA ===== */
+  img, video, audio{ max-width:100%; display:block; margin:10px auto; border-radius:10px }
+  img{ width:250px; height:250px; object-fit:cover; border:3px solid var(--cor-principal) }
+  .profile-img{ width:130px; height:130px; border-radius:50%; border:3px solid var(--cor-principal); object-fit:cover; display:block; margin:0 auto 15px }
+
+  video{ width:100%; max-width:720px }
+  audio{ width:100%; max-width:500px }
+
+  /* iframe responsivo */
+  .responsive-iframe{ width:100%; max-width:1000px; aspect-ratio:16/9; height:auto; border:0; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,.18); margin:18px auto }
+
+  footer{ position:fixed; bottom:0; left:0; width:100%; background: rgba(215,38,96,0.9); color:var(--texto-claro); text-align:center; padding:8px 0; z-index:15; box-shadow:0 -2px 10px rgba(0,0,0,.25) }
+
+  /* ===== RESPONSIVO ===== */
+  @media(max-width:900px){
+    nav{ gap:12px; padding:10px }
+    .menu-central{ padding:18px }
+    .profile-img{ width:110px; height:110px }
   }
-}
+
+  @media(max-width:600px){
+    nav{ flex-direction:column; gap:8px }
+    .aba{ padding:110px 12px 90px }
+    img{ width:180px; height:180px }
+    .menu-central{ max-width:92% }
+    .responsive-iframe{ aspect-ratio: 4/3 }
+  }
+
+  @media(min-width:1200px){
+    .menu-central{ max-width:520px }
+  }
 </style>
 </head>
 <body>
